@@ -68,8 +68,8 @@ order by 1,2
 
 
 --Joining Two different tables on location and date
-  
-  --Looking at Total Population vs Vaccinations
+
+--Looking at Total Population vs Vaccinations
 
 
 Select dea.continent, dea.location, dea.date, dea.population, vac.new_vaccinations
@@ -99,9 +99,8 @@ Join [Portfolio Project]..CovidVaccinations vac
     On dea.location = vac.location
 	and dea.date = vac.date
 Where dea.continent is not null
---order by 2,3
 )
-Select *, (RollingPeopleVaccinated/Population)*100
+Select *, (RollingPeopleVaccinated/Population)*100 As PercentPopulationVaccinated
 From PopvsVac
 
 
@@ -127,10 +126,10 @@ From [Portfolio Project]..CovidDeaths dea
 Join [Portfolio Project]..CovidVaccinations vac
     On dea.location = vac.location
 	and dea.date = vac.date
---Where dea.continent is not null
---order by 2,3
+Where dea.continent is not null
 
-Select *, (RollingPeopleVaccinated/Population)*100
+
+Select *, (RollingPeopleVaccinated/Population)*100 As PercentPopulationVaccinated
 From #PercentPopulationVaccinated
 
 
@@ -146,8 +145,8 @@ Join [Portfolio Project]..CovidVaccinations vac
     On dea.location = vac.location
 	and dea.date = vac.date
 Where dea.continent is not null
---order by 2,3
 
+	
 Select*
 From #PercentPopulationVaccinated
 
